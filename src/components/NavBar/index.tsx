@@ -2,9 +2,11 @@ import { brightness24, moon24 } from '@esri/calcite-ui-icons'
 import { useContext } from 'react'
 import { ThemeContext } from '../../theme/ThemeProvider'
 import EsriSvgIcon from '../EsriSvgIcon'
+import useLocale from '../../i18n'
 
 const NavBar = () => {
   const { themeMode, onThemeChange } = useContext(ThemeContext)
+  const {t, switchLocale} = useLocale({})
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -50,7 +52,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost normal-case text-xl">Jim Chang</a>
+        <a className="btn btn-ghost normal-case text-xl">{t.nav.title}</a>
       </div>
       <div className="navbar-end">
         <button
@@ -58,6 +60,7 @@ const NavBar = () => {
           onClick={() => {
             if (themeMode === 'dark') {
               onThemeChange('light')
+              switchLocale('ru')
               return
             }
             onThemeChange('dark')
