@@ -171,6 +171,11 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.51.0.tgz#6d419c240cfb2b66da37df230f7e7eef801c32fa"
   integrity sha512-HxjQ8Qn+4SI3/AFv6sOrDB+g6PpUTDwSJiQqOrnneEk8L71161srI9gjzzZvYVbzHiVg/BvcH95+cK/zfIt4pg==
 
+"@esri/calcite-ui-icons@^3.24.8":
+  version "3.24.8"
+  resolved "https://registry.yarnpkg.com/@esri/calcite-ui-icons/-/calcite-ui-icons-3.24.8.tgz#6aed402f32ab056589b97907258cc2c8dd3c25e6"
+  integrity sha512-rutXscuUv+JMlt0ihPy3re00ILCjZt2XhP70PMiwqIx6hfp+6Iorjwoh97s9x1oPBLyjQV8RqQoAPnmW+fG5Zg==
+
 "@humanwhocodes/config-array@^0.11.11":
   version "0.11.11"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.11.tgz#88a04c570dbbc7dd943e4712429c3df09bc32844"
