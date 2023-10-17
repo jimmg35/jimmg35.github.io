@@ -1,32 +1,99 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Inter } from 'next/font/google'
+import NavBar from '../components/NavBar'
+import ThemeProvider, { ThemeContext } from '../theme/ThemeProvider'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function RootLayout({
-  children
-}: {
+interface IRootEntry {
   children: React.ReactNode
-}) {
-  const [theme, settheme] = useState('light')
+}
+
+const RootEntry = ({ children }: IRootEntry) => {
+  const { themeMode } = useContext(ThemeContext)
   return (
-    <html lang="en" data-theme={theme}>
+    <html lang="en" data-theme={themeMode}>
       <head>
-        <title>My name is Jim. 👏</title>
+        <title>{`I'm Jim. 👏`}</title>
+        <link
+          href="/favicon/favicon-dark-16.png"
+          sizes="16x16"
+          rel="icon"
+          media="(prefers-color-scheme: light)"
+        />
+        <link
+          href="/favicon/favicon-dark-32.png"
+          sizes="32x32"
+          rel="icon"
+          media="(prefers-color-scheme: light)"
+        />
+        <link
+          href="/favicon/favicon-dark-48.png"
+          sizes="48x48"
+          rel="icon"
+          media="(prefers-color-scheme: light)"
+        />
+        <link
+          href="/favicon/favicon-dark-64.png"
+          sizes="64x64"
+          rel="icon"
+          media="(prefers-color-scheme: light)"
+        />
+        <link
+          href="/favicon/favicon-dark-96.png"
+          sizes="96x96"
+          rel="icon"
+          media="(prefers-color-scheme: light)"
+        />
+
+        <link
+          href="/favicon/favicon-light-16.png"
+          sizes="16x16"
+          rel="icon"
+          media="(prefers-color-scheme: dark)"
+        />
+        <link
+          href="/favicon/favicon-light-32.png"
+          sizes="32x32"
+          rel="icon"
+          media="(prefers-color-scheme: dark)"
+        />
+        <link
+          href="/favicon/favicon-light-48.png"
+          sizes="48x48"
+          rel="icon"
+          media="(prefers-color-scheme: dark)"
+        />
+        <link
+          href="/favicon/favicon-light-64.png"
+          sizes="64x64"
+          rel="icon"
+          media="(prefers-color-scheme: dark)"
+        />
+        <link
+          href="/favicon/favicon-light-96.png"
+          sizes="96x96"
+          rel="icon"
+          media="(prefers-color-scheme: dark)"
+        />
       </head>
       <body className={inter.className}>
+        <NavBar />
         {children}
-        <div
-          onClick={() => {
-            settheme('dark')
-          }}
-        >
-          www
-        </div>
       </body>
     </html>
   )
 }
+
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <ThemeProvider>
+      <RootEntry>{children}</RootEntry>
+    </ThemeProvider>
+  )
+}
+
+export default RootLayout
