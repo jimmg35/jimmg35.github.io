@@ -3,7 +3,21 @@ import { ILocalePackage } from '..'
 const langRu: ILocalePackage = {
   schema: 'ru',
   nav: {
-    title: 'Джим'
+    title: 'Джим',
+    burger: {
+      home: 'Главная',
+      about: 'Обо мне',
+      education: 'Образование',
+      undergraduate: 'Бакалавриат',
+      graduate: 'Магистратура',
+      phd: 'Докторская степень',
+      experience: 'Опыт работы',
+      research: 'Исследования',
+      work: 'Работа',
+      publications: 'Публикации',
+      skills: 'Навыки',
+      contact: 'Контакт'
+    }
   }
 }
 

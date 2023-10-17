@@ -25,21 +25,44 @@ const NavBar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <a>{t.nav.burger.home}</a>
             </li>
             <li>
-              <a>Parent</a>
+              <a>{t.nav.burger.about}</a>
+            </li>
+            <li>
+              <a>{t.nav.burger.education}</a>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <a>{t.nav.burger.undergraduate}</a>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a>{t.nav.burger.graduate}</a>
+                </li>
+                <li>
+                  <a>{t.nav.burger.phd}</a>
                 </li>
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              <a>{t.nav.burger.experience}</a>
+              <ul className="p-2">
+                <li>
+                  <a>{t.nav.burger.research}</a>
+                </li>
+                <li>
+                  <a>{t.nav.burger.work}</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a>{t.nav.burger.publications}</a>
+            </li>
+            <li>
+              <a>{t.nav.burger.skills}</a>
+            </li>
+            <li>
+              <a>{t.nav.burger.contact}</a>
             </li>
           </ul>
         </div>
