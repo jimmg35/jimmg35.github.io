@@ -7,15 +7,16 @@ interface IEsriSvgIcon {
 
 const EsriSvgIcon = ({ size, svg }: IEsriSvgIcon) => {
   return (
-    <svg
-      width={`${size}`}
-      height={`${size}`}
-      fill="none"
-      viewBox={`0 0 ${size} ${size}`}
-      stroke="currentColor"
-    >
-      <path d={svg} />
-    </svg>
+    <span>
+      <svg
+        className="fill-current"
+        width={size}
+        height={size}
+        // viewBox={`0 0 ${size} ${size}`}
+      >
+        <path d={svg} />
+      </svg>
+    </span>
   )
 }
 

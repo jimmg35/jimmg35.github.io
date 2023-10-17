@@ -1,29 +1,24 @@
-import { brightness24, moon24 } from '@esri/calcite-ui-icons'
-import { useContext } from 'react'
+import {
+  brightness24,
+  hamburger24,
+  language24,
+  moon24
+} from '@esri/calcite-ui-icons'
+import React, { useContext } from 'react'
+import classNames from 'classnames'
+import useLocale from '../../i18n'
 import { ThemeContext } from '../../theme/ThemeProvider'
 import EsriSvgIcon from '../EsriSvgIcon'
 
 const NavBar = () => {
   const { themeMode, onThemeChange } = useContext(ThemeContext)
+  const { t, locale, switchLocale } = useLocale({})
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h7"
-              />
-            </svg>
+            <EsriSvgIcon svg={hamburger24} size={24} />
           </label>
           <ul
             tabIndex={0}
@@ -50,9 +45,64 @@ const NavBar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost normal-case text-xl">Jim Chang</a>
+        <a className="btn btn-ghost normal-case text-xl">{t.nav.title}</a>
       </div>
       <div className="navbar-end">
+        <div className="dropdown dropdown-end">
+          <label tabIndex={0} className="btn btn-ghost btn-circle">
+            <EsriSvgIcon svg={language24} size={24} />
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content gap-1 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <button
+                className={classNames({
+                  ['active']: locale === 'en'
+                })}
+                onClick={() => {
+                  switchLocale('en')
+                }}
+              >
+                <span className="badge badge-sm badge-outline !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50">
+                  EN
+                </span>
+                English
+              </button>
+            </li>
+            <li>
+              <button
+                className={classNames({
+                  ['active']: locale === 'zh'
+                })}
+                onClick={() => {
+                  switchLocale('zh')
+                }}
+              >
+                <span className="badge badge-sm badge-outline !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50">
+                  ZH
+                </span>
+                繁體中文
+              </button>
+            </li>
+            <li>
+              <button
+                className={classNames({
+                  ['active']: locale === 'ru'
+                })}
+                onClick={() => {
+                  switchLocale('ru')
+                }}
+              >
+                <span className="badge badge-sm badge-outline !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50">
+                  RU
+                </span>
+                Русский
+              </button>
+            </li>
+          </ul>
+        </div>
         <button
           className="btn btn-ghost btn-circle"
           onClick={() => {
