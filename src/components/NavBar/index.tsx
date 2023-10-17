@@ -1,8 +1,18 @@
 import {
+  beaker16,
+  bookmark16,
   brightness24,
+  education16,
+  emailAddress16,
+  fileMagnifyingGlass16,
   hamburger24,
+  information16,
   language24,
-  moon24
+  locator16,
+  moon24,
+  paste16,
+  rasterFunction16,
+  rasterFunctionTemplate16
 } from '@esri/calcite-ui-icons'
 import React, { useContext } from 'react'
 import classNames from 'classnames'
@@ -25,21 +35,84 @@ const NavBar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <a>
+                <EsriSvgIcon svg={locator16} size={16} />
+                {t.nav.burger.home}
+              </a>
             </li>
             <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+              <a>
+                <EsriSvgIcon svg={information16} size={16} />
+                {t.nav.burger.about}
+              </a>
             </li>
             <li>
-              <a>Item 3</a>
+              <details>
+                <summary>
+                  <EsriSvgIcon svg={education16} size={16} />
+                  {t.nav.burger.education}
+                </summary>
+                <ul className="p-2">
+                  <li>
+                    <a>
+                      <EsriSvgIcon svg={education16} size={16} />
+                      {t.nav.burger.undergraduate}
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      <EsriSvgIcon svg={education16} size={16} />
+                      {t.nav.burger.graduate}
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      <EsriSvgIcon svg={education16} size={16} />
+                      {t.nav.burger.phd}
+                    </a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>
+                  <EsriSvgIcon svg={paste16} size={16} />
+                  {t.nav.burger.experience}
+                </summary>
+                <ul className="p-2">
+                  <li>
+                    <a>
+                      <EsriSvgIcon svg={beaker16} size={16} />
+                      {t.nav.burger.research}
+                    </a>
+                  </li>
+                  <li>
+                    <a>
+                      <EsriSvgIcon svg={fileMagnifyingGlass16} size={16} />
+                      {t.nav.burger.work}
+                    </a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <a>
+                <EsriSvgIcon svg={bookmark16} size={16} />
+                {t.nav.burger.publications}
+              </a>
+            </li>
+            <li>
+              <a>
+                <EsriSvgIcon svg={rasterFunctionTemplate16} size={16} />
+                {t.nav.burger.skills}
+              </a>
+            </li>
+            <li>
+              <a>
+                <EsriSvgIcon svg={emailAddress16} size={16} />
+                {t.nav.burger.contact}
+              </a>
             </li>
           </ul>
         </div>

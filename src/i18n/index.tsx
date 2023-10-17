@@ -9,6 +9,20 @@ export interface ILocalePackage {
   schema: Locale
   nav: {
     title: string
+    burger: {
+      home: string
+      about: string
+      education: string
+      undergraduate: string
+      graduate: string
+      phd: string
+      experience: string
+      research: string
+      work: string
+      publications: string
+      skills: string
+      contact: string
+    }
   }
 }
 
