@@ -1,9 +1,9 @@
-import { ILocalePackage } from ".."
+import { ILocalePackage } from '..'
 
 const langEn: ILocalePackage = {
-  "schema": "en",
-  "nav": {
-    "title": "Jim Chang"
+  schema: 'en',
+  nav: {
+    title: 'Jim Chang'
   }
 }
 

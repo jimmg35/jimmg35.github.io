@@ -1,7 +1,7 @@
-import React, {useState} from "react"
-import langEn from "./en"
-import langZh from "./zh"
-import langRu from "./ru"
+import { useState } from 'react'
+import langEn from './en'
+import langRu from './ru'
+import langZh from './zh'
 
 export type Locale = 'en' | 'zh' | 'ru'
 
@@ -13,16 +13,12 @@ export interface ILocalePackage {
 }
 
 const localeBundle = {
-  'en': langEn,
-  'zh': langZh,
-  'ru': langRu
+  en: langEn,
+  zh: langZh,
+  ru: langRu
 }
 
-const useLocale = ({
- defaultLocale = 'en'
-}: {
-  defaultLocale?: Locale
-}) => {
+const useLocale = ({ defaultLocale = 'en' }: { defaultLocale?: Locale }) => {
   const [locale, setlocale] = useState<Locale>(defaultLocale)
   const [t, sett] = useState<ILocalePackage>(localeBundle[defaultLocale])
 
@@ -31,8 +27,7 @@ const useLocale = ({
     sett(localeBundle[locale])
   }
 
-  return {t, locale, switchLocale}
-
+  return { t, locale, switchLocale }
 }
 
 export default useLocale

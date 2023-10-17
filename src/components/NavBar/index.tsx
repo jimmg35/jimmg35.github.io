@@ -4,7 +4,7 @@ import {
   language24,
   moon24
 } from '@esri/calcite-ui-icons'
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import classNames from 'classnames'
 import useLocale from '../../i18n'
 import { ThemeContext } from '../../theme/ThemeProvider'
