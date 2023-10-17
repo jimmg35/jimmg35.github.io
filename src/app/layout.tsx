@@ -2,6 +2,7 @@
 
 import React, { useContext } from 'react'
 import { Inter } from 'next/font/google'
+import Breadcrumb from '../components/Breadcrumb'
 import NavBar from '../components/NavBar'
 import ThemeProvider, { ThemeContext } from '../theme/ThemeProvider'
 import './globals.css'
@@ -82,6 +83,7 @@ const RootEntry = ({ children }: IRootEntry) => {
       </head>
       <body className={inter.className}>
         <NavBar />
+        <Breadcrumb />
         {children}
       </body>
     </html>
