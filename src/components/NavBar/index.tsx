@@ -11,7 +11,6 @@ import {
   locator16,
   moon24,
   paste16,
-  rasterFunction16,
   rasterFunctionTemplate16
 } from '@esri/calcite-ui-icons'
 import React, { useContext } from 'react'
