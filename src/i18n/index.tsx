@@ -20,6 +20,9 @@ export interface ILocalePackage {
       research: string
       work: string
       publications: string
+      journal: string
+      conference: string
+      presentation: string
       skills: string
       contact: string
     }

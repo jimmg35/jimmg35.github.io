@@ -13,6 +13,10 @@ interface IRootEntry {
   children: React.ReactNode
 }
 
+const Wrapper = ({ children }: { children: React.ReactNode }) => {
+  return <div>{children}</div>
+}
+
 const RootEntry = ({ children }: IRootEntry) => {
   const { themeMode } = useContext(ThemeContext)
   return (
@@ -82,9 +86,11 @@ const RootEntry = ({ children }: IRootEntry) => {
         />
       </head>
       <body className={inter.className}>
-        <NavBar />
-        <Breadcrumb />
-        {children}
+        <Wrapper>
+          <NavBar />
+          <Breadcrumb />
+          {children}
+        </Wrapper>
       </body>
     </html>
   )

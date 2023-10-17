@@ -15,6 +15,9 @@ const langEn: ILocalePackage = {
       research: 'Research',
       work: 'Work',
       publications: 'Publications',
+      journal: 'Journal',
+      conference: 'Conference',
+      presentation: 'Presentation',
       skills: 'Skills',
       contact: 'Contact'
     }

@@ -1,59 +1,54 @@
+import { locator16 } from '@esri/calcite-ui-icons'
+import { useEffect, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import useLocale from '../../i18n'
+import EsriSvgIcon from '../EsriSvgIcon'
+
 const Breadcrumb = () => {
+  const { t, locale, switchLocale } = useLocale({})
+  const pathname = usePathname()
+  const [paths, setpaths] = useState<string[]>([])
+
+  const trimSpecificCharacters = (str: string, charToRemove: string) => {
+    const regex = new RegExp(`^${charToRemove}+|${charToRemove}+$`, 'g')
+    return str.replace(regex, '')
+  }
+
+  useEffect(() => {
+    if (pathname === '/') {
+      setpaths([t.nav.burger.home])
+      return
+    }
+
+    const paths = trimSpecificCharacters(pathname, '/')
+      .split('/')
+      .map((p) => t.nav.burger.about)
+    setpaths(paths)
+  }, [pathname, locale])
+
+  useEffect(() => {
+    console.log(locale)
+  }, [locale])
+
   return (
     <div className="text-sm breadcrumbs bg-[#0055bd] text-white py-4 flex items-center justify-center">
       <ul>
-        <li>
-          <a>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="w-4 h-4 mr-2 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-              ></path>
-            </svg>
-            Home
+        {paths.map((path, index) => {
+          return (
+            <li key={index}>
+              <a className="gap-1">
+                <EsriSvgIcon svg={locator16} size={16} />
+                {t.nav.burger.home}
+              </a>
+            </li>
+          )
+        })}
+        {/* <li>
+          <a className="gap-1">
+            <EsriSvgIcon svg={locator16} size={16} />
+            {t.nav.burger.home}
           </a>
-        </li>
-        <li>
-          <a>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="w-4 h-4 mr-2 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-              ></path>
-            </svg>
-            Documents
-          </a>
-        </li>
-        <li>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="w-4 h-4 mr-2 stroke-current"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-            ></path>
-          </svg>
-          Add Document
-        </li>
+        </li> */}
       </ul>
     </div>
   )
