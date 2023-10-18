@@ -12,7 +12,7 @@ const Footer = () => {
 
       <button className="btn btn-sm btn-circle btn-primary">
         <img
-          src={'/favicon/favicon-light-32.png'}
+          src={'/favicon/favicon-light-48.png'}
           width={32}
           height={32}
           alt={'J'}
