@@ -1,11 +1,11 @@
 import { locator16 } from '@esri/calcite-ui-icons'
-import { useContext, useEffect, useState } from 'react'
-import { usePathname, useRouter } from 'next/navigation'
-import useLocale, { LocaleContext } from '../../i18n'
+import React, { useContext, useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { LocaleContext } from '../../i18n'
 import EsriSvgIcon from '../EsriSvgIcon'
 
 const Breadcrumb = () => {
-  const { t, locale, switchLocale } = useContext(LocaleContext)
+  const { t, locale } = useContext(LocaleContext)
   const pathname = usePathname()
   const [paths, setpaths] = useState<string[]>([])
 
@@ -22,7 +22,7 @@ const Breadcrumb = () => {
 
     const paths = trimSpecificCharacters(pathname, '/')
       .split('/')
-      .map((p) => t.nav.burger.about)
+      .map(() => t.nav.burger.about)
     setpaths(paths)
   }, [pathname, locale])
 

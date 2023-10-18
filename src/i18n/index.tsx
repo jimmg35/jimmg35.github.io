@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import langEn from './en'
 import langRu from './ru'
 import langZh from './zh'
@@ -60,7 +60,7 @@ interface ILocaleContext {
 export const LocaleContext = createContext<ILocaleContext>({
   t: langEn,
   locale: 'en',
-  switchLocale: (locale) => {}
+  switchLocale: () => {}
 })
 
 const LocaleProvider = ({ children }: { children: React.ReactNode }) => {
