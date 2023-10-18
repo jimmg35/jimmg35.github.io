@@ -15,6 +15,9 @@ const langZh: ILocalePackage = {
       research: '研究經歷',
       work: '工作經驗',
       publications: '出版物',
+      journal: '期刊論文',
+      conference: '研討會論文',
+      presentation: '研討會發表',
       skills: '技能',
       contact: '聯絡我'
     }

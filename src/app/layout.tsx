@@ -2,7 +2,9 @@
 
 import React, { useContext } from 'react'
 import { Inter } from 'next/font/google'
+import Breadcrumb from '../components/Breadcrumb'
 import NavBar from '../components/NavBar'
+import LocaleProvider from '../i18n'
 import ThemeProvider, { ThemeContext } from '../theme/ThemeProvider'
 import './globals.css'
 
@@ -82,6 +84,7 @@ const RootEntry = ({ children }: IRootEntry) => {
       </head>
       <body className={inter.className}>
         <NavBar />
+        <Breadcrumb />
         {children}
       </body>
     </html>
@@ -91,7 +94,9 @@ const RootEntry = ({ children }: IRootEntry) => {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider>
-      <RootEntry>{children}</RootEntry>
+      <LocaleProvider>
+        <RootEntry>{children}</RootEntry>
+      </LocaleProvider>
     </ThemeProvider>
   )
 }

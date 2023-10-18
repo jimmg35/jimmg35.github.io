@@ -12,7 +12,7 @@ const EsriSvgIcon = ({ size, svg }: IEsriSvgIcon) => {
         className="fill-current"
         width={size}
         height={size}
-        // viewBox={`0 0 ${size} ${size}`}
+        viewBox={`0 0 ${size} ${size}`}
       >
         <path d={svg} />
       </svg>

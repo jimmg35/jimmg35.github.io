@@ -2,6 +2,7 @@ import {
   beaker16,
   bookmark16,
   brightness24,
+  conferenceRoom16,
   education16,
   emailAddress16,
   fileMagnifyingGlass16,
@@ -11,17 +12,21 @@ import {
   locator16,
   moon24,
   paste16,
-  rasterFunctionTemplate16
+  presentation16,
+  rasterFunctionTemplate16,
+  script16
 } from '@esri/calcite-ui-icons'
 import React, { useContext } from 'react'
 import classNames from 'classnames'
-import useLocale from '../../i18n'
+import Link from 'next/link'
+import { LocaleContext } from '../../i18n'
 import { ThemeContext } from '../../theme/ThemeProvider'
 import EsriSvgIcon from '../EsriSvgIcon'
 
 const NavBar = () => {
   const { themeMode, onThemeChange } = useContext(ThemeContext)
-  const { t, locale, switchLocale } = useLocale({})
+  const { t, locale, switchLocale } = useContext(LocaleContext)
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -34,16 +39,16 @@ const NavBar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>
+              <Link href="/">
                 <EsriSvgIcon svg={locator16} size={16} />
                 {t.nav.burger.home}
-              </a>
+              </Link>
             </li>
             <li>
-              <a>
+              <Link href="/about">
                 <EsriSvgIcon svg={information16} size={16} />
                 {t.nav.burger.about}
-              </a>
+              </Link>
             </li>
             <li>
               <details>
@@ -53,22 +58,22 @@ const NavBar = () => {
                 </summary>
                 <ul className="p-2">
                   <li>
-                    <a>
+                    <Link href="/education/undergraduate">
                       <EsriSvgIcon svg={education16} size={16} />
                       {t.nav.burger.undergraduate}
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a>
+                    <Link href="/education/graduate">
                       <EsriSvgIcon svg={education16} size={16} />
                       {t.nav.burger.graduate}
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a>
+                    <Link href="/education/phd">
                       <EsriSvgIcon svg={education16} size={16} />
                       {t.nav.burger.phd}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </details>
@@ -81,37 +86,59 @@ const NavBar = () => {
                 </summary>
                 <ul className="p-2">
                   <li>
-                    <a>
+                    <Link href="/experience/research">
                       <EsriSvgIcon svg={beaker16} size={16} />
                       {t.nav.burger.research}
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a>
+                    <Link href="/experience/work">
                       <EsriSvgIcon svg={fileMagnifyingGlass16} size={16} />
                       {t.nav.burger.work}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-              <a>
-                <EsriSvgIcon svg={bookmark16} size={16} />
-                {t.nav.burger.publications}
-              </a>
+              <details>
+                <summary>
+                  <EsriSvgIcon svg={bookmark16} size={16} />
+                  {t.nav.burger.publications}
+                </summary>
+                <ul className="p-2">
+                  <li>
+                    <Link href="/publications/journal">
+                      <EsriSvgIcon svg={script16} size={16} />
+                      {t.nav.burger.journal}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/publications/conference">
+                      <EsriSvgIcon svg={conferenceRoom16} size={16} />
+                      {t.nav.burger.conference}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/publications/presentation">
+                      <EsriSvgIcon svg={presentation16} size={16} />
+                      {t.nav.burger.presentation}
+                    </Link>
+                  </li>
+                </ul>
+              </details>
             </li>
             <li>
-              <a>
+              <Link href="/skills">
                 <EsriSvgIcon svg={rasterFunctionTemplate16} size={16} />
                 {t.nav.burger.skills}
-              </a>
+              </Link>
             </li>
             <li>
-              <a>
+              <Link href="/contact">
                 <EsriSvgIcon svg={emailAddress16} size={16} />
                 {t.nav.burger.contact}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

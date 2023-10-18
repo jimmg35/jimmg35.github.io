@@ -15,6 +15,9 @@ const langRu: ILocalePackage = {
       research: 'Исследования',
       work: 'Работа',
       publications: 'Публикации',
+      journal: 'Журнал',
+      conference: 'Конференция',
+      presentation: 'Презентация',
       skills: 'Навыки',
       contact: 'Контакт'
     }
