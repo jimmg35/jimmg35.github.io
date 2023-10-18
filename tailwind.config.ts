@@ -13,10 +13,16 @@ const config: Config = {
       {
         light: {
           ...require('daisyui/src/theming/themes')['[data-theme=light]'],
-          'base-100': '#f9f9fa'
+          'base-100': '#f9f9fa',
+          primary: '#0055bd'
         }
       },
-      'dark'
+      {
+        dark: {
+          ...require('daisyui/src/theming/themes')['[data-theme=dark]'],
+          primary: '#0055bd'
+        }
+      }
     ]
   }
 }

@@ -3,6 +3,7 @@
 import React, { useContext } from 'react'
 import { Inter } from 'next/font/google'
 import Breadcrumb from '../components/Breadcrumb'
+import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
 import LocaleProvider from '../i18n'
 import ThemeProvider, { ThemeContext } from '../theme/ThemeProvider'
@@ -86,6 +87,7 @@ const RootEntry = ({ children }: IRootEntry) => {
         <NavBar />
         <Breadcrumb />
         {children}
+        <Footer />
       </body>
     </html>
   )

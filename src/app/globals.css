@@ -3,5 +3,10 @@
 @tailwind utilities;
 
 body {
-  @apply w-screen min-h-screen;
+  @apply w-screen;
+}
+
+main {
+  @apply w-screen;
+  height: calc(100dvh - 172px);
 }
