@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { createContext, useState } from 'react'
 import langEn from './en'
 import langRu from './ru'
 import langZh from './zh'
@@ -35,7 +35,11 @@ const localeBundle = {
   ru: langRu
 }
 
-const useLocale = ({ defaultLocale = 'en' }: { defaultLocale?: Locale }) => {
+export const useLocale = ({
+  defaultLocale = 'en'
+}: {
+  defaultLocale: Locale | undefined
+}) => {
   const [locale, setlocale] = useState<Locale>(defaultLocale)
   const [t, sett] = useState<ILocalePackage>(localeBundle[defaultLocale])
 
@@ -47,4 +51,32 @@ const useLocale = ({ defaultLocale = 'en' }: { defaultLocale?: Locale }) => {
   return { t, locale, switchLocale }
 }
 
-export default useLocale
+interface ILocaleContext {
+  t: ILocalePackage
+  locale: Locale
+  switchLocale: (locale: Locale) => void
+}
+
+export const LocaleContext = createContext<ILocaleContext>({
+  t: langEn,
+  locale: 'en',
+  switchLocale: (locale) => {}
+})
+
+const LocaleProvider = ({ children }: { children: React.ReactNode }) => {
+  const { t, locale, switchLocale } = useLocale({ defaultLocale: 'en' })
+
+  return (
+    <LocaleContext.Provider
+      value={{
+        t,
+        locale,
+        switchLocale
+      }}
+    >
+      {children}
+    </LocaleContext.Provider>
+  )
+}
+
+export default LocaleProvider

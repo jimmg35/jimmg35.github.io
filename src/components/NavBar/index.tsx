@@ -19,19 +19,13 @@ import {
 import React, { useContext } from 'react'
 import classNames from 'classnames'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import useLocale from '../../i18n'
+import { LocaleContext } from '../../i18n'
 import { ThemeContext } from '../../theme/ThemeProvider'
 import EsriSvgIcon from '../EsriSvgIcon'
 
 const NavBar = () => {
   const { themeMode, onThemeChange } = useContext(ThemeContext)
-  const { t, locale, switchLocale } = useLocale({})
-  const router = useRouter()
-
-  // const handleRouteClick = (route: string) => {
-  //   router.push(route)
-  // }
+  const { t, locale, switchLocale } = useContext(LocaleContext)
 
   return (
     <div className="navbar bg-base-100">
