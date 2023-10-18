@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import langEn from './en'
 import langRu from './ru'
 import langZh from './zh'
@@ -35,13 +35,9 @@ const localeBundle = {
   ru: langRu
 }
 
-export const useLocale = ({
-  defaultLocale = 'en'
-}: {
-  defaultLocale: Locale | undefined
-}) => {
-  const [locale, setlocale] = useState<Locale>(defaultLocale)
-  const [t, sett] = useState<ILocalePackage>(localeBundle[defaultLocale])
+export const useLocale = () => {
+  const [locale, setlocale] = useState<Locale>('en')
+  const [t, sett] = useState<ILocalePackage>(localeBundle['en'])
 
   const pathLocaleBundle: { [key: string]: string } = {
     home: t.nav.burger.home,
@@ -66,6 +62,23 @@ export const useLocale = ({
     sett(localeBundle[locale])
   }
 
+  useEffect(() => {
+    const userLanguage = navigator.language
+    if (userLanguage === 'en-US') {
+      switchLocale('en')
+      return
+    }
+    if (userLanguage === 'zh-TW') {
+      switchLocale('zh')
+      return
+    }
+    if (userLanguage === 're-Ru') {
+      switchLocale('ru')
+      return
+    }
+    switchLocale('en')
+  }, [])
+
   return { t, locale, pathLocaleBundle, switchLocale }
 }
 
@@ -84,9 +97,7 @@ export const LocaleContext = createContext<ILocaleContext>({
 })
 
 const LocaleProvider = ({ children }: { children: React.ReactNode }) => {
-  const { t, locale, pathLocaleBundle, switchLocale } = useLocale({
-    defaultLocale: 'en'
-  })
+  const { t, locale, pathLocaleBundle, switchLocale } = useLocale()
 
   return (
     <LocaleContext.Provider
