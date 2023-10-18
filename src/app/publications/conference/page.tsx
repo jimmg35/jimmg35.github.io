@@ -1,13 +1,15 @@
 'use client'
 
 import React, { useContext } from 'react'
-import { LocaleContext } from '../../i18n'
+import { LocaleContext } from '../../../i18n'
 
-export default function About() {
+const Conference = () => {
   const { t } = useContext(LocaleContext)
   return (
     <main>
-      <p>{t.nav.burger.about}</p>
+      <p>{t.nav.burger.conference}</p>
     </main>
   )
 }
+
+export default Conference
