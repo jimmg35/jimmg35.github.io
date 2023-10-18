@@ -3,13 +3,13 @@
 import React, { useContext } from 'react'
 import { LocaleContext } from '../../../i18n'
 
-const Undergraduate = () => {
+const Graduate = () => {
   const { t } = useContext(LocaleContext)
   return (
     <main>
-      <p>{t.nav.burger.undergraduate}</p>
+      <p>{t.nav.burger.graduate}</p>
     </main>
   )
 }
 
-export default Undergraduate
+export default Graduate

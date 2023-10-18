@@ -16,7 +16,6 @@ const config: Config = {
           'base-100': '#f9f9fa'
         }
       },
-      ,
       'dark'
     ]
   }

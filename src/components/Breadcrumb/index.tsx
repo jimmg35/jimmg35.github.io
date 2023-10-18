@@ -19,13 +19,10 @@ const Breadcrumb = () => {
       setpaths([t.nav.burger.home])
       return
     }
-
     const newpaths = trimSpecificCharacters(pathname, '/')
       .split('/')
       .map((p) => pathLocaleBundle[p])
     setpaths(newpaths)
-
-    console.log(newpaths)
   }, [pathname, locale])
 
   return (
