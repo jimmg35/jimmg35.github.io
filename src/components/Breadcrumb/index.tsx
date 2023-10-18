@@ -5,8 +5,8 @@ import { LocaleContext } from '../../i18n'
 import EsriSvgIcon from '../EsriSvgIcon'
 
 const Breadcrumb = () => {
-  const { t, locale } = useContext(LocaleContext)
   const pathname = usePathname()
+  const { t, locale, pathLocaleBundle } = useContext(LocaleContext)
   const [paths, setpaths] = useState<string[]>([])
 
   const trimSpecificCharacters = (str: string, charToRemove: string) => {
@@ -20,15 +20,13 @@ const Breadcrumb = () => {
       return
     }
 
-    const paths = trimSpecificCharacters(pathname, '/')
+    const newpaths = trimSpecificCharacters(pathname, '/')
       .split('/')
-      .map(() => t.nav.burger.about)
-    setpaths(paths)
-  }, [pathname, locale])
+      .map((p) => pathLocaleBundle[p])
+    setpaths(newpaths)
 
-  useEffect(() => {
-    console.log(locale)
-  }, [locale])
+    console.log(newpaths)
+  }, [pathname, locale])
 
   return (
     <div className="text-sm breadcrumbs bg-[#0055bd] text-white py-4 flex items-center justify-center">
@@ -38,7 +36,7 @@ const Breadcrumb = () => {
             <li key={index}>
               <a className="gap-1">
                 <EsriSvgIcon svg={locator16} size={16} />
-                {t.nav.burger.home}
+                {path}
               </a>
             </li>
           )
