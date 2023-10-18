@@ -1,5 +1,5 @@
-import { caretLeft16, caretRight16, script16 } from '@esri/calcite-ui-icons'
-import Image from 'next/image'
+import { caretLeft16, caretRight16 } from '@esri/calcite-ui-icons'
+import React from 'react'
 import EsriSvgIcon from '../EsriSvgIcon'
 
 const Footer = () => {
