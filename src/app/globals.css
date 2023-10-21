@@ -10,3 +10,26 @@ main {
   @apply w-screen;
   height: calc(100dvh - 172px);
 }
+
+.landing-img {
+  filter: invert(94%) sepia(12%) saturate(58%) hue-rotate(182deg)
+    brightness(101%) contrast(86%);
+}
+.landing-img-dark {
+  filter: invert(0%) sepia(6%) saturate(7475%) hue-rotate(284deg)
+    brightness(94%) contrast(106%);
+}
+
+.landing-background {
+  background-image: url('/image/landing.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 992px) {
+  main {
+    @apply w-screen;
+    height: calc(100dvh - 116px);
+  }
+}
