@@ -4,7 +4,7 @@ import EsriSvgIcon from '../EsriSvgIcon'
 
 const Footer = () => {
   return (
-    <footer className="footer flex items-center justify-between min-h-[56px] px-4 py-2 bg-primary text-white">
+    <footer className="lg:hidden footer flex items-center justify-between min-h-[56px] px-4 py-2 bg-primary text-white">
       <button className="btn capitalize font-normal text-sm btn-primary btn-sm flex items-center justify-center">
         <EsriSvgIcon svg={caretLeft16} size={16} />
         <span>button</span>
