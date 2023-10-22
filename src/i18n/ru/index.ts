@@ -23,7 +23,10 @@ const langRu: ILocalePackage = {
     }
   },
   home: {
-    greet: 'Привет, я Джим'
+    greet: 'Привет, я Джим',
+    aug: 'A',
+    aboutMeBtn: 'Обо мне',
+    cvBtn: 'C.V. & RESMUE'
   }
 }
 

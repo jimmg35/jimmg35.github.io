@@ -23,7 +23,10 @@ const langZh: ILocalePackage = {
     }
   },
   home: {
-    greet: '你好呀，我是家浚'
+    greet: '你好呀，我是家浚',
+    aug: '我是個',
+    aboutMeBtn: '關於我',
+    cvBtn: 'C.V. & RESMUE'
   }
 }
 

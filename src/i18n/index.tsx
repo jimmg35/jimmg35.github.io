@@ -29,6 +29,9 @@ export interface ILocalePackage {
   }
   home: {
     greet: string
+    aug: string
+    aboutMeBtn: string
+    cvBtn: string
   }
 }
 
