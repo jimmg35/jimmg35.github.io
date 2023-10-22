@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import Breadcrumb from '../components/Breadcrumb'
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
+import PageRouter from '../components/PageRouter'
 import LocaleProvider from '../i18n'
 import RouteProvider from '../route/RouteProvider'
 import ThemeProvider, { ThemeContext } from '../theme/ThemeProvider'
@@ -88,6 +89,7 @@ const RootEntry = ({ children }: IRootEntry) => {
         <NavBar />
         <Breadcrumb />
         {children}
+        <PageRouter />
         <Footer />
       </body>
     </html>

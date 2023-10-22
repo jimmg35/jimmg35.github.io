@@ -1,5 +1,5 @@
-import { createContext, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { createContext, useEffect, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 
 export interface IRoute {
   name: string
@@ -23,6 +23,7 @@ export const RouteContext = createContext<IRouteContext>({
 })
 
 const RouteProvider = ({ children }: { children: React.ReactNode }) => {
+  const pathname = usePathname()
   const [currentRoute, setcurrentRoute] = useState<number>(0)
   const [previousRoute, setpreviousRoute] = useState<number | undefined>(
     undefined
@@ -44,6 +45,20 @@ const RouteProvider = ({ children }: { children: React.ReactNode }) => {
   ]
   const router = useRouter()
 
+  const getIndexByName = (path: string) => {
+    for (let i = 0; i < routes.length; i++) {
+      if (routes[i].name === path) {
+        return i
+      }
+    }
+    return -1
+  }
+
+  const trimSpecificCharacters = (str: string, charToRemove: string) => {
+    const regex = new RegExp(`^${charToRemove}+|${charToRemove}+$`, 'g')
+    return str.replace(regex, '')
+  }
+
   const handleRouteChange = (route: number) => {
     const previous_route = route - 1
     const next_route = route + 1
@@ -60,6 +75,16 @@ const RouteProvider = ({ children }: { children: React.ReactNode }) => {
     setcurrentRoute(route)
     router.push(routes[route].path)
   }
+
+  useEffect(() => {
+    if (pathname === '/') {
+      handleRouteChange(0)
+      return
+    }
+    const newpaths = trimSpecificCharacters(pathname, '/').split('/')
+    const index = getIndexByName(newpaths[newpaths.length - 1])
+    handleRouteChange(index)
+  }, [pathname])
 
   return (
     <RouteContext.Provider
