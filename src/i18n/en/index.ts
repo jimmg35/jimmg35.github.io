@@ -21,6 +21,9 @@ const langEn: ILocalePackage = {
       skills: 'Skills',
       contact: 'Contact'
     }
+  },
+  home: {
+    greet: "Hello there, I'm Jim"
   }
 }
 

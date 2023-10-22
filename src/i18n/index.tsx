@@ -27,6 +27,9 @@ export interface ILocalePackage {
       contact: string
     }
   }
+  home: {
+    greet: string
+  }
 }
 
 const localeBundle = {

@@ -21,6 +21,9 @@ const langRu: ILocalePackage = {
       skills: 'Навыки',
       contact: 'Контакт'
     }
+  },
+  home: {
+    greet: 'Привет, я Джим'
   }
 }
 
