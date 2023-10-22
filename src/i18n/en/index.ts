@@ -23,7 +23,10 @@ const langEn: ILocalePackage = {
     }
   },
   home: {
-    greet: "Hello there, I'm Jim"
+    greet: "Hello there, I'm Jim",
+    aug: 'A',
+    aboutMeBtn: 'About Me',
+    cvBtn: 'C.V. & RESMUE'
   }
 }
 
