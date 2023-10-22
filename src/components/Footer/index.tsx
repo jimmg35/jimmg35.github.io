@@ -1,16 +1,32 @@
 import { caretLeft16, caretRight16 } from '@esri/calcite-ui-icons'
-import React from 'react'
+import React, { useContext } from 'react'
+import classNames from 'classnames'
+import { LocaleContext } from '../../i18n'
+import { RouteContext } from '../../route/RouteProvider'
 import EsriSvgIcon from '../EsriSvgIcon'
 
 const Footer = () => {
+  const { routes, previousRoute, nextRoute, onRouteIndexChange } =
+    useContext(RouteContext)
+  const { pathLocaleBundle } = useContext(LocaleContext)
   return (
     <footer className="lg:hidden footer flex items-center justify-between min-h-[56px] px-4 py-2 bg-primary text-white">
-      <button className="btn capitalize font-normal text-sm btn-primary btn-sm flex items-center justify-center">
+      <button
+        className={classNames({
+          'btn capitalize font-normal text-sm btn-primary btn-sm flex items-center justify-center gap-0 flex-[0.45]':
+            true,
+          invisible: previousRoute === undefined
+        })}
+        onClick={() => {
+          if (previousRoute !== undefined) onRouteIndexChange(previousRoute)
+        }}
+      >
         <EsriSvgIcon svg={caretLeft16} size={16} />
-        <span>button</span>
+        {previousRoute !== undefined && (
+          <span>{pathLocaleBundle[routes[previousRoute].name]}</span>
+        )}
       </button>
-
-      <button className="btn btn-sm btn-circle btn-primary">
+      <button className="btn btn-sm btn-circle btn-primary flex-[0.1]">
         <img
           src={'/favicon/favicon-light-48.png'}
           width={32}
@@ -19,8 +35,19 @@ const Footer = () => {
         />
       </button>
 
-      <button className="btn capitalize font-normal text-sm btn-primary btn-sm flex items-center justify-center">
-        <span>button</span>
+      <button
+        className={classNames({
+          'btn capitalize font-normal text-sm btn-primary btn-sm flex items-center justify-center gap-0 flex-[0.45]':
+            true,
+          invisible: nextRoute === undefined
+        })}
+        onClick={() => {
+          if (nextRoute !== undefined) onRouteIndexChange(nextRoute)
+        }}
+      >
+        {nextRoute !== undefined && (
+          <span>{pathLocaleBundle[routes[nextRoute].name]}</span>
+        )}
         <EsriSvgIcon svg={caretRight16} size={16} />
       </button>
     </footer>

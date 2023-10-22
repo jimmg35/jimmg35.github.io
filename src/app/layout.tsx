@@ -6,6 +6,7 @@ import Breadcrumb from '../components/Breadcrumb'
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
 import LocaleProvider from '../i18n'
+import RouteProvider from '../route/RouteProvider'
 import ThemeProvider, { ThemeContext } from '../theme/ThemeProvider'
 import './globals.css'
 
@@ -97,7 +98,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider>
       <LocaleProvider>
-        <RootEntry>{children}</RootEntry>
+        <RouteProvider>
+          <RootEntry>{children}</RootEntry>
+        </RouteProvider>
       </LocaleProvider>
     </ThemeProvider>
   )

@@ -10,7 +10,7 @@ const langRu: ILocalePackage = {
       education: 'Образование',
       undergraduate: 'Бакалавриат',
       graduate: 'Магистратура',
-      phd: 'Докторская степень',
+      phd: 'Докторская',
       experience: 'Опыт работы',
       research: 'Исследования',
       work: 'Работа',
