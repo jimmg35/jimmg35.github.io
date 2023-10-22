@@ -21,6 +21,12 @@ const langZh: ILocalePackage = {
       skills: '技能',
       contact: '聯絡我'
     }
+  },
+  home: {
+    greet: '你好呀，我是家浚',
+    aug: '我是個',
+    aboutMeBtn: '關於我',
+    cvBtn: 'C.V. & RESMUE'
   }
 }
 

@@ -6,7 +6,31 @@ const config: Config = {
     './src/containers/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}'
   ],
-  plugins: [require('daisyui')],
+  plugins: [
+    require('daisyui'),
+    require('tailwind-typewriter')({
+      wordsets: {
+        en: {
+          words: ['software developer', 'researcher', 'student'],
+          writeSpeed: 0.05,
+          eraseSpeed: 0.05,
+          pauseBetween: 2
+        },
+        zh: {
+          words: ['軟體工程師', '研究者', '學生'],
+          writeSpeed: 0.05,
+          eraseSpeed: 0.05,
+          pauseBetween: 2
+        },
+        ru: {
+          words: ['разработчик', 'Исследователь', 'студент'],
+          writeSpeed: 0.05,
+          eraseSpeed: 0.05,
+          pauseBetween: 2
+        }
+      }
+    })
+  ],
   // daisyUI config (optional - here are the default values)
   daisyui: {
     themes: [

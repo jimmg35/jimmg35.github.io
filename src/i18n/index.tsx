@@ -27,6 +27,12 @@ export interface ILocalePackage {
       contact: string
     }
   }
+  home: {
+    greet: string
+    aug: string
+    aboutMeBtn: string
+    cvBtn: string
+  }
 }
 
 const localeBundle = {
