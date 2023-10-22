@@ -2,19 +2,21 @@
 
 import React, { useContext } from 'react'
 import classNames from 'classnames'
+import { useRouter } from 'next/navigation'
 import { LocaleContext } from '../../i18n'
 import { ThemeContext } from '../../theme/ThemeProvider'
 
 const HomeContainer = () => {
   const { themeMode } = useContext(ThemeContext)
   const { t, locale } = useContext(LocaleContext)
+  const router = useRouter()
   return (
     <main className="flex flex-col items-center justify-center landing-background">
       <div
         className={classNames({
-          'flex flex-col gap-8 p-8 lg:p-16 rounded-xl bg-opacity-80': true,
-          'bg-black': themeMode === 'dark',
-          'bg-white': themeMode !== 'dark'
+          'flex flex-col gap-8 p-8 lg:p-16 rounded-xl ': true,
+          'bg-black bg-opacity-60': themeMode === 'dark',
+          'bg-white bg-opacity-90': themeMode !== 'dark'
         })}
       >
         <div className="flex flex-col gap-4 lg:flex-row lg:gap-8 items-center ">
@@ -41,7 +43,12 @@ const HomeContainer = () => {
           </div>
         </div>
         <div>
-          <button className="btn btn-sm lg:btn lg:btn-primary btn-primary mr-4">
+          <button
+            className="btn btn-sm lg:btn lg:btn-primary btn-primary mr-4"
+            onClick={() => {
+              router.push('/about')
+            }}
+          >
             {t.home.aboutMeBtn}
           </button>
           <button className="btn btn-sm lg:btn lg:btn-accent btn-accent">
