@@ -16,6 +16,7 @@
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",
+    "sass": "^1.69.4",
     "tailwind-typewriter": "^1.0.1"
   },
   "devDependencies": {
