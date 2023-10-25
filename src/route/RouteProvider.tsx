@@ -1,14 +1,24 @@
 import {
   beaker16,
+  beaker32,
   conferenceRoom16,
+  conferenceRoom32,
   education16,
+  education32,
   emailAddress16,
+  emailAddress32,
   fileMagnifyingGlass16,
+  fileMagnifyingGlass32,
   information16,
+  information32,
   locator16,
+  locator32,
   presentation16,
+  presentation32,
   rasterFunctionTemplate16,
-  script16
+  rasterFunctionTemplate32,
+  script16,
+  script32
 } from '@esri/calcite-ui-icons'
 import React, { createContext, useEffect, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
@@ -18,6 +28,7 @@ export interface IRoute {
   name: string
   path: string
   icon: React.JSX.Element
+  contentIcon: React.JSX.Element
 }
 
 interface IRouteContext {
@@ -47,62 +58,74 @@ const RouteProvider = ({ children }: { children: React.ReactNode }) => {
     {
       name: 'home',
       path: '/',
-      icon: <EsriSvgIcon svg={locator16} size={16} />
+      icon: <EsriSvgIcon svg={locator16} size={16} />,
+      contentIcon: <EsriSvgIcon svg={locator32} size={32} />
     },
     {
       name: 'about',
       path: '/about',
-      icon: <EsriSvgIcon svg={information16} size={16} />
+      icon: <EsriSvgIcon svg={information16} size={16} />,
+      contentIcon: <EsriSvgIcon svg={information32} size={32} />
     },
     {
       name: 'undergraduate',
       path: '/education/undergraduate',
-      icon: <EsriSvgIcon svg={education16} size={16} />
+      icon: <EsriSvgIcon svg={education16} size={16} />,
+      contentIcon: <EsriSvgIcon svg={education32} size={32} />
     },
     {
       name: 'graduate',
       path: '/education/graduate',
-      icon: <EsriSvgIcon svg={education16} size={16} />
+      icon: <EsriSvgIcon svg={education16} size={16} />,
+      contentIcon: <EsriSvgIcon svg={education32} size={32} />
     },
     {
       name: 'phd',
       path: '/education/phd',
-      icon: <EsriSvgIcon svg={education16} size={16} />
+      icon: <EsriSvgIcon svg={education16} size={16} />,
+      contentIcon: <EsriSvgIcon svg={education32} size={32} />
     },
     {
       name: 'research',
       path: '/experience/research',
-      icon: <EsriSvgIcon svg={beaker16} size={16} />
+      icon: <EsriSvgIcon svg={beaker16} size={16} />,
+      contentIcon: <EsriSvgIcon svg={beaker32} size={32} />
     },
     {
       name: 'work',
       path: '/experience/work',
-      icon: <EsriSvgIcon svg={fileMagnifyingGlass16} size={16} />
+      icon: <EsriSvgIcon svg={fileMagnifyingGlass16} size={16} />,
+      contentIcon: <EsriSvgIcon svg={fileMagnifyingGlass32} size={32} />
     },
     {
       name: 'conference',
       path: '/publications/conference',
-      icon: <EsriSvgIcon svg={script16} size={16} />
+      icon: <EsriSvgIcon svg={script16} size={16} />,
+      contentIcon: <EsriSvgIcon svg={script32} size={32} />
     },
     {
       name: 'journal',
       path: '/publications/journal',
-      icon: <EsriSvgIcon svg={conferenceRoom16} size={16} />
+      icon: <EsriSvgIcon svg={conferenceRoom16} size={16} />,
+      contentIcon: <EsriSvgIcon svg={conferenceRoom32} size={32} />
     },
     {
       name: 'presentation',
       path: '/publications/presentation',
-      icon: <EsriSvgIcon svg={presentation16} size={16} />
+      icon: <EsriSvgIcon svg={presentation16} size={16} />,
+      contentIcon: <EsriSvgIcon svg={presentation32} size={32} />
     },
     {
       name: 'skills',
       path: '/skills',
-      icon: <EsriSvgIcon svg={rasterFunctionTemplate16} size={16} />
+      icon: <EsriSvgIcon svg={rasterFunctionTemplate16} size={16} />,
+      contentIcon: <EsriSvgIcon svg={rasterFunctionTemplate32} size={32} />
     },
     {
       name: 'contact',
       path: '/contact',
-      icon: <EsriSvgIcon svg={emailAddress16} size={16} />
+      icon: <EsriSvgIcon svg={emailAddress16} size={16} />,
+      contentIcon: <EsriSvgIcon svg={emailAddress32} size={32} />
     }
   ]
   const router = useRouter()

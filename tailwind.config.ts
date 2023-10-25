@@ -38,7 +38,8 @@ const config: Config = {
         light: {
           ...require('daisyui/src/theming/themes')['[data-theme=light]'],
           'base-100': '#f9f9fa',
-          primary: '#0055bd'
+          primary: '#0055bd',
+          neutral: '#f2f2f2'
         }
       },
       {
