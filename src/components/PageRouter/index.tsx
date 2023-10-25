@@ -25,7 +25,7 @@ const PageRouter = () => {
             if (previousRoute !== undefined) onRouteIndexChange(previousRoute)
           }}
         >
-          ❮
+          {previousRoute !== undefined && routes[previousRoute].icon}
         </a>
       </div>
 
@@ -44,7 +44,7 @@ const PageRouter = () => {
             if (nextRoute !== undefined) onRouteIndexChange(nextRoute)
           }}
         >
-          ❯
+          {nextRoute !== undefined && routes[nextRoute].icon}
         </a>
       </div>
     </div>
