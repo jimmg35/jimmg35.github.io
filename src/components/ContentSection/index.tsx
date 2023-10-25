@@ -1,3 +1,5 @@
+import React from 'react'
+
 interface IContentSection {
   title: string
   icon: React.JSX.Element
