@@ -1,13 +1,8 @@
 'use client'
 
-import React, { useContext } from 'react'
-import { LocaleContext } from '../../i18n'
+import React from 'react'
+import AboutContainer from '../../containers/AboutContainer'
 
 export default function About() {
-  const { t } = useContext(LocaleContext)
-  return (
-    <main>
-      <p>{t.nav.burger.about}</p>
-    </main>
-  )
+  return <AboutContainer />
 }

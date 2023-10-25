@@ -14,7 +14,10 @@ const PageRouter = () => {
           'tooltip tooltip-right': true,
           invisible: previousRoute === undefined
         })}
-        data-tip={previousRoute && pathLocaleBundle[routes[previousRoute].name]}
+        data-tip={
+          previousRoute !== undefined &&
+          pathLocaleBundle[routes[previousRoute].name]
+        }
       >
         <a
           className="btn btn-circle btn-primary text-2xl"
@@ -22,7 +25,7 @@ const PageRouter = () => {
             if (previousRoute !== undefined) onRouteIndexChange(previousRoute)
           }}
         >
-          ❮
+          {previousRoute !== undefined && routes[previousRoute].icon}
         </a>
       </div>
 
@@ -31,7 +34,9 @@ const PageRouter = () => {
           'tooltip tooltip-left': true,
           invisible: nextRoute === undefined
         })}
-        data-tip={nextRoute && pathLocaleBundle[routes[nextRoute].name]}
+        data-tip={
+          nextRoute !== undefined && pathLocaleBundle[routes[nextRoute].name]
+        }
       >
         <a
           className="btn btn-circle btn-primary text-2xl"
@@ -39,7 +44,7 @@ const PageRouter = () => {
             if (nextRoute !== undefined) onRouteIndexChange(nextRoute)
           }}
         >
-          ❯
+          {nextRoute !== undefined && routes[nextRoute].icon}
         </a>
       </div>
     </div>

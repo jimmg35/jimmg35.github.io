@@ -14,7 +14,7 @@ const HomeContainer = () => {
     <main className="flex flex-col items-center justify-center landing-background">
       <div
         className={classNames({
-          'flex flex-col gap-8 p-8 lg:p-16 rounded-xl ': true,
+          'flex flex-col gap-8 p-8 lg:p-16 rounded-xl': true,
           'bg-black bg-opacity-60': themeMode === 'dark',
           'bg-white bg-opacity-90': themeMode !== 'dark'
         })}
