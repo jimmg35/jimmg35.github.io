@@ -1,11 +1,9 @@
 'use client'
 
-import React, { useContext } from 'react'
+import React from 'react'
 import classNames from 'classnames'
-import { ThemeContext } from '../../theme/ThemeProvider'
 
 const ComingSoon = () => {
-  const { themeMode } = useContext(ThemeContext)
   return (
     <main className="flex flex-col items-center justify-center coming-background">
       <div
