@@ -1,15 +1,10 @@
 'use client'
 
-import React, { useContext } from 'react'
-import { LocaleContext } from '../../../i18n'
+import React from 'react'
+import ComingSoon from '../../../containers/ComingSoon'
 
 const Journal = () => {
-  const { t } = useContext(LocaleContext)
-  return (
-    <main>
-      <p>{t.nav.burger.journal}</p>
-    </main>
-  )
+  return <ComingSoon />
 }
 
 export default Journal

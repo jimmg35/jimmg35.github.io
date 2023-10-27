@@ -1,15 +1,10 @@
 'use client'
 
-import React, { useContext } from 'react'
-import { LocaleContext } from '../../../i18n'
+import React from 'react'
+import ComingSoon from '../../../containers/ComingSoon'
 
 const Conference = () => {
-  const { t } = useContext(LocaleContext)
-  return (
-    <main>
-      <p>{t.nav.burger.conference}</p>
-    </main>
-  )
+  return <ComingSoon />
 }
 
 export default Conference
