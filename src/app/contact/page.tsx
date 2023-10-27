@@ -1,13 +1,8 @@
 'use client'
 
-import React, { useContext } from 'react'
-import { LocaleContext } from '../../i18n'
+import React from 'react'
+import ComingSoon from '../../containers/ComingSoon'
 
 export default function Contact() {
-  const { t } = useContext(LocaleContext)
-  return (
-    <main>
-      <p>{t.nav.burger.contact}</p>
-    </main>
-  )
+  return <ComingSoon />
 }
